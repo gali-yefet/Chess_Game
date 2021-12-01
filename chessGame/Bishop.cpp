@@ -10,15 +10,15 @@ int Bioshop::valadateMove(const int newX, const int newY)
 {
 	if ((getX() - newX == getY() - newY) || (newX - getX() == newY - getY()))
 	{
-		int offsetX = (getX() > newX) ? 1 : -1;
-		int offsetY = (getY() > newY) ? 1 : -1;
-		int row = 0;
-		int col = 0;
-		for (row = getX() + offsetX, col = getY() + offsetY; row != newX; row += offsetX, col += offsetY)
+		int offsetX = (getX() < newX) ? 1 : -1;
+		int offsetY = (getY() < newY) ? 1 : -1;
+		int x = 0;
+		int y = 0;
+		for (x = getX() + offsetX, y = getY() + offsetY; x != newX; x += offsetX, y += offsetY)
 		{
 			for (int i = 0; i < getGame()->getBoard().size(); i++)
 			{
-				if (getGame()->getBoard()[i]->getX() == getX() && getGame()->getBoard()[i]->getY() == getY())
+				if (getGame()->getBoard()[i]->getX() == x && getGame()->getBoard()[i]->getY() == y)
 				{
 					return 6;
 				}
