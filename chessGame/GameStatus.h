@@ -12,12 +12,13 @@ using std::string;
 class GameStatus
 {
 private:
-	Piece board[BOARD_LEN][BOARD_LEN];
+	Piece* board[BOARD_LEN][BOARD_LEN];
 	bool isWhiteTurn;
 
 public:
 	GameStatus();
 	string toString() const;
+	Piece* getBoard() const;
 };
 
 

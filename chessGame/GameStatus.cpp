@@ -14,3 +14,8 @@ string GameStatus::toString() const
 		return "RNBKQBNRPPPPPPPP################################pppppppprnbkqbnr1";
 	return "RNBKQBNRPPPPPPPP################################pppppppprnbkqbnr0";
 }
+
+void GameStatus::getBoard() const
+{
+	return this->board;
+}
