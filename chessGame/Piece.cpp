@@ -72,14 +72,27 @@ string Piece::getType()const
 {
 	return _type;
 }
+/*get board
+* input: none
+* output: board
+*/
+GameStatus* Piece::getGame()const
+{
+	return _game;
+}
 /*constructor
 * input: x, y, color and type
 * output: none
 */
-Piece::Piece(const int x, const int y, const int color, const string type)
+Piece::Piece(const int x, const int y, const int color, const string type, GameStatus* board)
 {
 	_posX = x;
 	_posY = y;
 	_color = color;
 	_type = type;
+	_game = board;
+}
+Piece::~Piece()
+{
+	delete _game;
 }
