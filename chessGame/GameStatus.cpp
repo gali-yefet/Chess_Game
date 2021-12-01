@@ -7,6 +7,8 @@ GameStatus::GameStatus()
 	this->isWhiteTurn = 0;
 	//0- white
 	//else- black
+	//add rook
+
 }
 string GameStatus::toString() const
 {
