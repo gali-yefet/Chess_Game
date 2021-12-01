@@ -72,7 +72,7 @@ int Board::valadate(int x, int y, int newX, int newY)
 	}
 
 	//check options
-	if (this->game.getBoard()[i]->valadateMove(this->game.getBoard()[k]->getX(), this->game.getBoard()[k]->getY(), &this->game))//the move made a check on the opponent
+	if (this->game.getBoard()[i]->valadateMove(this->game.getBoard()[k]->getX(), this->game.getBoard()[k]->getY()))//the move made a check on the opponent
 	{
 		return CHECK;
 	}
@@ -84,7 +84,7 @@ int Board::valadate(int x, int y, int newX, int newY)
 	{
 		return DES_P;
 	}
-	if (this->game.getBoard()[i]->valadateMove(this->game.getBoard()[kCurrent]->getX(), this->game.getBoard()[kCurrent]->getY(), &this->game))// the move made a check on the currrent player
+	if (this->game.getBoard()[i]->valadateMove(this->game.getBoard()[kCurrent]->getX(), this->game.getBoard()[kCurrent]->getY()))// the move made a check on the currrent player
 	{
 		return CHECK_C;
 	}
@@ -92,7 +92,7 @@ int Board::valadate(int x, int y, int newX, int newY)
 	{
 		return RANGE;
 	}
-	if (!(this->game.getBoard()[i]->valadateMove(newX, newY, &this->game)))// invalid move of piece
+	if (!(this->game.getBoard()[i]->valadateMove(newX, newY)))// invalid move of piece
 	{
 		return I_MOVE;
 	}
