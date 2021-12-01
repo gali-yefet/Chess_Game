@@ -35,5 +35,4 @@ int Rook::valadateMove(const int newX, const int newY)
     }
     else
         return 6;
-
 }
