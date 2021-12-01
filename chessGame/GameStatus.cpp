@@ -17,7 +17,12 @@ string GameStatus::toString() const
 	return "RNBKQBNRPPPPPPPP################################pppppppprnbkqbnr0";
 }
 
-std::vector<Piece*> GameStatus::getBoard() const
+vector<Piece*> GameStatus::getBoard() const
 {
 	return this->_board;
+}
+
+bool GameStatus::getIsWhiteTurn() const
+{
+	return this->isWhiteTurn;
 }
