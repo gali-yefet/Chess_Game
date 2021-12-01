@@ -7,17 +7,19 @@
 #include <vector>
 
 using std::string;
+using std::vector;
 
 class GameStatus
 {
 private:
-	std::vector<Piece*> _board;
+	vector<Piece*> _board;
 	bool isWhiteTurn;
 
 public:
 	GameStatus();
 	string toString() const;
-	std::vector<Piece*> getBoard() const;
+	vector<Piece*> getBoard() const;
+	bool getIsWhiteTurn() const;
 };
 
 
