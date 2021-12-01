@@ -6,8 +6,12 @@
 #include <string>
 #include <vector>
 
+class Piece;
+
 using std::string;
 using std::vector;
+
+
 
 class GameStatus
 {
