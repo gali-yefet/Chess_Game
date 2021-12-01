@@ -18,6 +18,7 @@ private:
 public:
 	GameStatus();
 	string toString() const;
+	Piece* getBoard() const;
 };
 
 
