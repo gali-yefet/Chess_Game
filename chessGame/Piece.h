@@ -2,6 +2,10 @@
 #include "GameStatus.h"
 #include <iostream>
 using namespace std;
+
+
+class GameStatus;
+
 class Piece
 {
 public:
