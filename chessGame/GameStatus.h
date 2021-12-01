@@ -21,9 +21,11 @@ private:
 
 public:
 	GameStatus();
+	~GameStatus();
 	string toString() const;
 	vector<Piece*> getBoard() const;
 	bool getIsWhiteTurn() const;
+	void setIsWhiteTurn(bool isWhiteTurn);
 };
 
 

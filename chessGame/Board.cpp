@@ -74,6 +74,13 @@ int Board::valadate(int x, int y, int newX, int newY)
 	//check options
 	if (this->game.getBoard()[i]->valadateMove(this->game.getBoard()[k]->getX(), this->game.getBoard()[k]->getY()))//the move made a check on the opponent
 	{
+		this->game.getBoard()[i]->move(newX, newY);// moving the current piece to the destination
+		if (j != this->game.getBoard().size())// there is a piece of the opponent in the destination
+		{
+			delete this->game.getBoard()[j];
+			this->game.getBoard().erase(this->game.getBoard().begin() + j);
+		}
+		this->game.setIsWhiteTurn(!this->game.getIsWhiteTurn());// setting the turn to the other player
 		return CHECK;
 	}
 	if (i == this->game.getBoard().size())// the player has no piece at the source point 
@@ -88,7 +95,7 @@ int Board::valadate(int x, int y, int newX, int newY)
 	{
 		return CHECK_C;
 	}
-	if ((newX > 7 || newX < 0) || (newY > 7 || newY < 0))//the new point is out of the game board
+	if ((newX > 8 || newX < 1) || (newY > 8 || newY < 1))//the new point is out of the game board
 	{
 		return RANGE;
 	}
@@ -102,8 +109,23 @@ int Board::valadate(int x, int y, int newX, int newY)
 	}
 	if (0)// checkmate was made
 	{
+		this->game.getBoard()[i]->move(newX, newY);// moving the current piece to the destination
+		if (j != this->game.getBoard().size())// there is a piece of the opponent in the destination
+		{
+			delete this->game.getBoard()[j];
+			this->game.getBoard().erase(this->game.getBoard().begin() + j);
+		}
+		this->game.setIsWhiteTurn(!this->game.getIsWhiteTurn());// setting the turn to the other player
 		return CHECKMATE;
 	}
 
+	this->game.getBoard()[i]->move(newX, newY);// moving the current piece to the destination
+	if (j != this->game.getBoard().size())// there is a piece of the opponent in the destination
+	{
+		delete this->game.getBoard()[j];
+		this->game.getBoard().erase(this->game.getBoard().begin() + j);
+	}
+	this->game.setIsWhiteTurn(!this->game.getIsWhiteTurn());// setting the turn to the other player
+	
 	return VALID;
 }
