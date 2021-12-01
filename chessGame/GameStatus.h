@@ -4,21 +4,20 @@
 #include "Piece.h"
 #include <stdio.h>
 #include <string>
-
-#define BOARD_LEN 8
+#include <vector>
 
 using std::string;
 
 class GameStatus
 {
 private:
-	Piece* board[BOARD_LEN][BOARD_LEN];
+	std::vector<Piece*> _board;
 	bool isWhiteTurn;
 
 public:
 	GameStatus();
 	string toString() const;
-	Piece* getBoard() const;
+	std::vector<Piece*> getBoard() const;
 };
 
 

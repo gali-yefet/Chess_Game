@@ -17,7 +17,7 @@ string GameStatus::toString() const
 	return "RNBKQBNRPPPPPPPP################################pppppppprnbkqbnr0";
 }
 
-Piece* GameStatus::getBoard() const
+std::vector<Piece*> GameStatus::getBoard() const
 {
-	return **(this->board);
+	return this->_board;
 }
