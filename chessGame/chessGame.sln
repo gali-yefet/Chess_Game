@@ -6,6 +6,13 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "chessGame", "chessGame.vcxproj", "{F87280D8-D851-4292-9F1F-2C16C21B4874}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{84D6620B-971A-4E09-BEB3-5462B5B7451A}"
+	ProjectSection(SolutionItems) = preProject
+		..\Pipe.h = ..\Pipe.h
+		..\Source.cpp = ..\Source.cpp
+		..\stdafx.cpp = ..\stdafx.cpp
+		..\stdafx.h = ..\stdafx.h
+		..\targetver.h = ..\targetver.h
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
