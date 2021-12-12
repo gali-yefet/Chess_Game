@@ -129,3 +129,7 @@ int Board::valadate(int x, int y, int newX, int newY)
 	
 	return VALID;
 }
+GameStatus Board::getGame() const
+{
+	return game;
+}
