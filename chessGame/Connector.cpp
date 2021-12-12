@@ -24,3 +24,7 @@ bool Connector::turn()
 	_p.sendMessageToGraphics(c);
 	return replay == 0 || replay == 1;
 }
+Connector::~Connector()
+{
+	_p.close();
+}
