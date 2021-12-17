@@ -37,8 +37,8 @@ GameStatus::GameStatus()
 	this->_board.push_back(new Rook(1, 8, 0, "rook", this));
 	this->_board.push_back(new Knight(2, 8, 0, "knight", this));
 	this->_board.push_back(new Bioshop(3, 8, 0, "bioshop", this));
-	this->_board.push_back(new Queen(4, 8, 0, "queen", this));
-	this->_board.push_back(new King(5, 8, 0, "king", this));
+	this->_board.push_back(new King(4, 8, 0, "king", this));
+	this->_board.push_back(new Queen(5, 8, 0, "queen", this));
 	this->_board.push_back(new Bioshop(6, 8, 0, "bioshop", this));
 	this->_board.push_back(new Knight(7, 8, 0, "knight", this));
 	this->_board.push_back(new Rook(8, 8, 0, "rook", this));
