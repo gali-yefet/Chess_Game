@@ -11,7 +11,7 @@
 //constructor
 GameStatus::GameStatus()
 {
-	this->isWhiteTurn = 0;
+	this->isWhiteTurn = false;
 	//0- white
 	//else- black
 	//add rook
