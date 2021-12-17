@@ -55,7 +55,7 @@ GameStatus::~GameStatus()
 }
 string GameStatus::toString() const
 {
-	if (this->isWhiteTurn == 0)
+	if (this->isWhiteTurn == false)
 		return "RNBKQBNRPPPPPPPP################################pppppppprnbkqbnr1";
 	return "RNBKQBNRPPPPPPPP################################pppppppprnbkqbnr0";
 }

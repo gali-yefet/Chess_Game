@@ -32,7 +32,7 @@ int Board::valadate(int x, int y, int newX, int newY)
 	//getting index of piece in the destination point
 	while (j < this->game->getBoard().size() && flag)
 	{
-		if (this->game->getBoard()[j]->getX() == newX && this->game->getBoard()[j]->getY() == newY && (this->game->getIsWhiteTurn() == false && this->game->getBoard()[k]->getColor() != 0) || (this->game->getIsWhiteTurn() == true && this->game->getBoard()[k]->getColor() == 0))
+		if (this->game->getBoard()[j]->getX() == newX && this->game->getBoard()[j]->getY() == newY && (this->game->getIsWhiteTurn() == false && this->game->getBoard()[j]->getColor() != 0) || (this->game->getIsWhiteTurn() == true && this->game->getBoard()[j]->getColor() == 0))
 		{
 			flag = false;// the index of the destination piece found
 		}
@@ -61,7 +61,7 @@ int Board::valadate(int x, int y, int newX, int newY)
 	flag = true;
 	while (kCurrent < this->game->getBoard().size() && flag)
 	{
-		if (this->game->getBoard()[kCurrent]->getType() == "king" && (this->game->getIsWhiteTurn() == true && this->game->getBoard()[k]->getColor() == 0) || (this->game->getIsWhiteTurn() == false && this->game->getBoard()[k]->getColor() != 0))
+		if (this->game->getBoard()[kCurrent]->getType() == "king" && (this->game->getIsWhiteTurn() == true && this->game->getBoard()[kCurrent]->getColor() == 0) || (this->game->getIsWhiteTurn() == false && this->game->getBoard()[kCurrent]->getColor() != 0))
 		{
 			flag = false;// the index of the current player's king found
 		}
