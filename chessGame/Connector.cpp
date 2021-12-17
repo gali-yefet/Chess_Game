@@ -5,13 +5,12 @@ Connector::Connector()
 	_game = Board();
 	_p.connect();
 	char c[1024];
-	const char* c = _game.getGame().toString().c_str();
+	strcpy_s(c, _game.getGame().toString().c_str());
 	_p.sendMessageToGraphics(c);
 }
 bool Connector::turn()
 {
 	string msg = _p.getMessageFromGraphics();
-	//1a3d
 	int values[4];
 	values[0] = (int)msg[0]-'0';
 	values[1] = (int)msg[0] - 'a'+1;
