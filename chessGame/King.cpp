@@ -7,7 +7,7 @@ int King::valadateMove(const int newX, const int newY)
 {
     if (((newY - getY() >= -1) && (newY - getY() <= 1)) && ((newX - getX() >= -1) && (newX - getX() <= 1)))
     {
-        return 0;
+        return VALID_M;
     }
-    return 6;
+    return INVALID_M;
 }

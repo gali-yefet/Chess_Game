@@ -2,7 +2,8 @@
 #include "GameStatus.h"
 #include <iostream>
 using namespace std;
-
+#define VALID_M 0
+#define INVALID_M 6
 
 class GameStatus;
 

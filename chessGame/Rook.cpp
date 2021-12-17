@@ -13,11 +13,11 @@ int Rook::valadateMove(const int newX, const int newY)
             {
                 if (getGame()->getBoard()[i]->getY() == y && getGame()->getBoard()[i]->getX() == getX())//if there is a piece of any kind
                 {
-                    return 6;
+                    return INVALID_M;
                 }
             }
         }
-        return 0;
+        return VALID_M;
     }
     else if (getY() == newY) {//if path creates an horizantal line
         int offsetX = (getX() < newX) ? 1 : -1;//moving forwards or backwards
@@ -27,12 +27,12 @@ int Rook::valadateMove(const int newX, const int newY)
             {
                 if (getGame()->getBoard()[i]->getX() == x && getGame()->getBoard()[i]->getY() == getY())
                 {
-                    return 6;
+                    return INVALID_M;
                 }
             }
         }
-        return 0;
+        return VALID_M;
     }
     else//if path dosent create a line
-        return 6;
+        return INVALID_M;
 }

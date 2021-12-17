@@ -20,12 +20,12 @@ int Bioshop::valadateMove(const int newX, const int newY)
             {
                 if (getGame()->getBoard()[i]->getX() == x && getGame()->getBoard()[i]->getY() == y)
                 {
-                    return 6;
+                    return INVALID_M;
                 }
             }
         }
-        return 0;
+        return VALID_M;
     }
     else
-        return 6;
+        return INVALID_M;
 }

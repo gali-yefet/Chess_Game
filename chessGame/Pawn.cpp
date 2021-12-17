@@ -14,10 +14,10 @@ int Pawn::valadateMove(const int newX, const int newY)
 		{
 			if (getGame()->getBoard()[i]->getX() == newX && getGame()->getBoard()[i]->getY() == newY)
 			{
-				return 6;
+				return INVALID_M;
 			}
 		}
-		return 0;
+		return VALID_M;
 	}
 	if (((getColor() == 0 && newY - getY() == -2 && getY() == 7) || (getColor() != 0 && newY - getY() == 2 && getY() == 2)) && getX() == newX)
 	{
@@ -25,10 +25,10 @@ int Pawn::valadateMove(const int newX, const int newY)
 		{
 			if (getGame()->getBoard()[i]->getX() == newX && getGame()->getBoard()[i]->getY() == newY)
 			{
-				return 6;
+				return INVALID_M;
 			}
 		}
-		return 0;
+		return VALID_M;
 	}
 	if (((getColor() == 0 && newY - getY() == -1) || (getColor() != 0 && newY - getY() == 1)) && ((newX - getX() == -1) || (newX - getX() == 1)))
 	{
@@ -36,10 +36,10 @@ int Pawn::valadateMove(const int newX, const int newY)
 		{
 			if (getGame()->getBoard()[i]->getX() == newX && getGame()->getBoard()[i]->getY() == newY)
 			{
-				return 0;
+				return VALID_M;
 			}
 		}
-		return 6;
+		return INVALID_M;
 	}
-	return 6;
+	return INVALID_M;
 }

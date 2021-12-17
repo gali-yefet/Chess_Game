@@ -14,11 +14,11 @@ int Queen::valadateMove(const int newX, const int newY)
             {
                 if (getGame()->getBoard()[i]->getY() == y && getGame()->getBoard()[i]->getX() == getX())//if there is a piece of any kind
                 {
-                    return 6;
+                    return INVALID_M;
                 }
             }
         }
-        return 0;
+        return VALID_M;
     }
     //horizontal 
     else if (getY() == newY) {//if path creates an horizantal line
@@ -29,11 +29,11 @@ int Queen::valadateMove(const int newX, const int newY)
             {
                 if (getGame()->getBoard()[i]->getX() == x && getGame()->getBoard()[i]->getY() == getY())
                 {
-                    return 6;
+                    return INVALID_M;
                 }
             }
         }
-        return 0;
+        return VALID_M;
     }
     //diagonal
     else if ((getX() - newX == getY() - newY) || (newX - getX() == newY - getY()) || (getX() - newX == -1 * (getY() - newY)) || (newX - getX() == -1 * (newY - getY())))
@@ -48,12 +48,12 @@ int Queen::valadateMove(const int newX, const int newY)
             {
                 if (getGame()->getBoard()[i]->getX() == x && getGame()->getBoard()[i]->getY() == y)
                 {
-                    return 6;
+                    return INVALID_M;
                 }
             }
         }
-        return 0;
+        return VALID_M;
     }
     else
-        return 6;
+        return INVALID_M;
 }

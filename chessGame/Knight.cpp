@@ -8,16 +8,16 @@ int Knight::valadateMove(const int newX, const int newY)
     {
         if ((getY() == newY + 2) || (getY() == newY - 2))
         {
-            return 0;
+            return VALID_M;
         }
     }
     else if ((getX() == newX + 2) || (getX() == newX - 2))
     {
         if ((getY() == newY + 1) || (getY() == newY - 1))
         {
-            return 0;
+            return VALID_M;
         }
     }
     else 
-        return 6;
+        return INVALID_M;
 }
