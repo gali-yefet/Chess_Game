@@ -6,13 +6,13 @@ Queen::Queen(const int x, const int y, const int color, const string type, GameS
 int Queen::valadateMove(const int newX, const int newY)
 {
     //vertical
-    if (getX() == newX) {
-        int offsetY = (getY() < newY) ? 1 : -1;
-        for (int y = getY() + offsetY; y != newY; y += offsetY) {
+    if (getX() == newX) {//if path creates an vertical line
+        int offsetY = (getY() < newY) ? 1 : -1;//moving forwards or backwards
+        for (int y = getY() + offsetY; y != newY; y += offsetY) {//for evrey square in path
 
             for (int i = 0; i < getGame()->getBoard().size(); i++)
             {
-                if (getGame()->getBoard()[i]->getY() == y && getGame()->getBoard()[i]->getX() == getX())
+                if (getGame()->getBoard()[i]->getY() == y && getGame()->getBoard()[i]->getX() == getX())//if there is a piece of any kind
                 {
                     return 6;
                 }
@@ -21,11 +21,11 @@ int Queen::valadateMove(const int newX, const int newY)
         return 0;
     }
     //horizontal 
-    else if (getY() == newY) {
-        int offsetX = (getX() < newX) ? 1 : -1;
-        for (int x = getX() + offsetX; x != newX; x += offsetX) {
+    else if (getY() == newY) {//if path creates an horizantal line
+        int offsetX = (getX() < newX) ? 1 : -1;//moving forwards or backwards
+        for (int x = getX() + offsetX; x != newX; x += offsetX) {//for evrey square in path
 
-            for (int i = 0; i < getGame()->getBoard().size(); i++)
+            for (int i = 0; i < getGame()->getBoard().size(); i++)//if there is a piece of any kind
             {
                 if (getGame()->getBoard()[i]->getX() == x && getGame()->getBoard()[i]->getY() == getY())
                 {
