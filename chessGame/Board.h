@@ -6,12 +6,12 @@
 class Board 
 {
 private:
-	GameStatus game;
+	GameStatus* game;
 
 public:
 	Board();
 	int valadate(int x, int y, int newX, int newY);
-	GameStatus getGame() const ;
+	GameStatus* getGame() const ;
 };
 
 

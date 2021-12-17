@@ -6,8 +6,8 @@
 class Connector
 {
 private:
-	Board _game;
-	Pipe _p;
+	Board* _game;
+	Pipe* _p;
 
 public:
 	Connector();
