@@ -15,6 +15,7 @@ bool Connector::turn()
 	string msg = _p->getMessageFromGraphics();
 	//1a3d
 	int values[4];
+
 	values[0] = (int)msg[0]- 'a'+1;
 	values[1] = (int)msg[1] - '0';	
 	values[2] = (int)msg[2] - 'a' + 1;
