@@ -18,7 +18,7 @@ int Board::valadate(int x, int y, int newX, int newY)
 	//getting index of piece in the source point
 	while (i < this->game->getBoard().size() && flag)
 	{
-		if (this->game->getBoard()[i]->getX() == x && this->game->getBoard()[i]->getY() == y && (this->game->getIsWhiteTurn() == false && this->game->getBoard()[k]->getColor() != 0) || (this->game->getIsWhiteTurn() == true && this->game->getBoard()[k]->getColor() == 0))
+		if (this->game->getBoard()[i]->getX() == x && this->game->getBoard()[i]->getY() == y && (this->game->getIsWhiteTurn() == false && this->game->getBoard()[i]->getColor() != 0) || (this->game->getIsWhiteTurn() == true && this->game->getBoard()[i]->getColor() == 0))
 		{
 			flag = false;// the index of the current piece found
 		}
