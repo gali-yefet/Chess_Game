@@ -1,6 +1,8 @@
 #include "Board.h"
 
 enum messages{VALID, CHECK, NO_P, DES_P, CHECK_C, RANGE, I_MOVE, SAME, CHECKMATE};
+#define OUTSIDE_X -10
+#define OUTSIDE_Y 18
 
 Board::Board()
 {
@@ -126,7 +128,8 @@ int Board::valadate(int x, int y, int newX, int newY)
 		if (j != this->game->getBoard().size()&& this->game->getBoard()[j]->getColor() != this->game->getBoard()[i]->getColor())// there is a piece of the opponent in the destination
 		{
 			//delete this->game->getBoard()[j];
-			this->game->getBoard().erase(this->game->getBoard().begin() + j);
+			//this->game->getBoard().erase(this->game->getBoard().begin());
+			this->game->getBoard()[j]->move(OUTSIDE_X, OUTSIDE_Y);
 		}
 		this->game->setIsWhiteTurn(!(this->game->getIsWhiteTurn()));// setting the turn to the other player
 	}

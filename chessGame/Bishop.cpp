@@ -7,7 +7,7 @@ Bioshop::Bioshop(const int x, const int y, const int color, const string type, G
 
 
 int Bioshop::valadateMove(const int newX, const int newY)
-{    
+{
     if ((getX() - newX == getY() - newY) || (newX - getX() == newY - getY()) || (getX() - newX == -1*(getY() - newY)) || (newX - getX() == -1 * (newY - getY())))
     {
         int offsetX = (getX() < newX) ? 1 : -1;
