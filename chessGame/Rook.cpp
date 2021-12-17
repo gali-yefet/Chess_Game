@@ -2,7 +2,8 @@
 Rook::Rook(const int x, const int y, const int color, const string type, GameStatus* board)
 	:Piece(x, y, color, type, board)
 {}
-
+/*valadates rook moves
+*/
 int Rook::valadateMove(const int newX, const int newY)
 {
     if (getX() == newX) {//if path creates an vertical line
@@ -11,7 +12,7 @@ int Rook::valadateMove(const int newX, const int newY)
 
             for (int i = 0; i < getGame()->getBoard().size(); i++)
             {
-                if (getGame()->getBoard()[i]->getY() == y && getGame()->getBoard()[i]->getX() == getX())//if there is a piece of any kind
+                if (getGame()->getBoard()[i]->getY() == y && getGame()->getBoard()[i]->getX() == getX())//if there is a piece of any kind in said line
                 {
                     return INVALID_M;
                 }
@@ -23,7 +24,7 @@ int Rook::valadateMove(const int newX, const int newY)
         int offsetX = (getX() < newX) ? 1 : -1;//moving forwards or backwards
         for (int x = getX() + offsetX; x != newX; x += offsetX) {//for evrey square in path
 
-            for (int i = 0; i < getGame()->getBoard().size(); i++)//if there is a piece of any kind
+            for (int i = 0; i < getGame()->getBoard().size(); i++)//if there is a piece of any kind in said line
             {
                 if (getGame()->getBoard()[i]->getX() == x && getGame()->getBoard()[i]->getY() == getY())
                 {

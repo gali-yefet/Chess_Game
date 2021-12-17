@@ -129,7 +129,7 @@ int Board::valadate(int x, int y, int newX, int newY)
 		{
 			//delete this->game->getBoard()[j];
 			//this->game->getBoard().erase(this->game->getBoard().begin());
-			this->game->getBoard()[j]->move(OUTSIDE_X, OUTSIDE_Y);
+			this->game->getBoard()[j]->move(OUTSIDE_X, OUTSIDE_Y);//moving the piece outside of effective range
 		}
 		this->game->setIsWhiteTurn(!(this->game->getIsWhiteTurn()));// setting the turn to the other player
 	}
