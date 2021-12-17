@@ -32,7 +32,7 @@ int Board::valadate(int x, int y, int newX, int newY)
 	//getting index of piece in the destination point
 	while (j < this->game->getBoard().size() && flag)
 	{
-		if (this->game->getBoard()[j]->getX() == newX && this->game->getBoard()[j]->getY() == newY&& (this->game->getIsWhiteTurn() == false && this->game->getBoard()[k]->getColor() == 0) || (this->game->getIsWhiteTurn() == true && this->game->getBoard()[k]->getColor() != 0))
+		if (this->game->getBoard()[j]->getX() == newX && this->game->getBoard()[j]->getY() == newY)
 		{
 			flag = false;// the index of the destination piece found
 		}
@@ -91,7 +91,7 @@ int Board::valadate(int x, int y, int newX, int newY)
 	{
 		return NO_P;
 	}
-	if (j != this->game->getBoard().size())// the player has piece at the destination point 
+	if (j != this->game->getBoard().size()&& this->game->getBoard()[i]->getColor()== this->game->getBoard()[j]->getColor())// the player has piece at the destination point 
 	{
 		return DES_P;
 	}
