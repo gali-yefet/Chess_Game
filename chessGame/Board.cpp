@@ -17,7 +17,7 @@ int Board::valadate(int x, int y, int newX, int newY)
 	int res = VALID; //return value
 
 	//getting index of piece in the source point
-	//if the piece is of the current player i == board.size
+	//if the piece is not of the current player i == board.size
 	while (i < this->game->getBoard().size() && flag)
 	{
 		if (this->game->getBoard()[i]->getX() == x && this->game->getBoard()[i]->getY() == y && (this->game->getIsWhiteTurn() == false && this->game->getBoard()[i]->getColor() != 0) || (this->game->getIsWhiteTurn() == true && this->game->getBoard()[i]->getColor() == 0))
@@ -50,7 +50,7 @@ int Board::valadate(int x, int y, int newX, int newY)
 	flag = true;
 	while (k < this->game->getBoard().size() && flag)
 	{
-		if (this->game->getBoard()[k]->getType() == "king" && (this->game->getIsWhiteTurn() == false && this->game->getBoard()[k]->getColor() == 0) || (this->game->getIsWhiteTurn() == true && this->game->getBoard()[k]->getColor() != 0))
+		if (this->game->getBoard()[k]->getType() == "king" && this->game->getBoard()[k]->getColor() != this->game->getBoard()[i]->getColor())
 		{
 			flag = false;// the index of the opponent's king found
 		}
@@ -65,7 +65,7 @@ int Board::valadate(int x, int y, int newX, int newY)
 	flag = true;
 	while (kCurrent < this->game->getBoard().size() && flag)
 	{
-		if (this->game->getBoard()[kCurrent]->getType() == "king" && (this->game->getIsWhiteTurn() == true && this->game->getBoard()[kCurrent]->getColor() == 0) || (this->game->getIsWhiteTurn() == false && this->game->getBoard()[kCurrent]->getColor() != 0))
+		if (this->game->getBoard()[kCurrent]->getType() == "king" && this->game->getBoard()[kCurrent]->getColor() == this->game->getBoard()[i]->getColor())
 		{
 			flag = false;// the index of the current player's king found
 		}
@@ -81,7 +81,7 @@ int Board::valadate(int x, int y, int newX, int newY)
 	{
 		res =  RANGE;
 	}
-	if ((this->game->getBoard()[i]->valadateMove(newX, newY)) != CHECK)// invalid move of piece
+	if ((this->game->getBoard()[i]->valadateMove(newX, newY)) != VALID)// invalid move of piece
 	{
 		res = I_MOVE;
 	}
@@ -93,28 +93,25 @@ int Board::valadate(int x, int y, int newX, int newY)
 	{
 		res = NO_P;
 	}
-	if (this->game->getBoard()[j]->getColor() == this->game->getBoard()[i]->getColor())// the player has piece at the destination point 
+	if (j != this->game->getBoard().size() && this->game->getBoard()[j]->getColor() == this->game->getBoard()[i]->getColor())// the player has piece at the destination point 
 	{
 		res = DES_P;
 	}
 	
 	this->game->getBoard()[i]->move(newX, newY);// moving the current piece to the destination
 
-	for (int x = 0; x < this->game->getBoard().size(); x++)
+	for (int a = 0; a < this->game->getBoard().size(); a++)
 	{
-		if (this->game->getBoard()[x]->valadateMove(this->game->getBoard()[kCurrent]->getX(), this->game->getBoard()[kCurrent]->getY()) == VALID && this->game->getBoard()[kCurrent]->getColor() != this->game->getBoard()[x]->getColor())// the move made a check on the currrent player
+		if (this->game->getBoard()[a]->valadateMove(this->game->getBoard()[kCurrent]->getX(), this->game->getBoard()[kCurrent]->getY()) == VALID && this->game->getBoard()[kCurrent]->getColor() != this->game->getBoard()[a]->getColor())// the move made a check on the currrent player
 		{
 			res = CHECK_C;
+			this->game->getBoard()[i]->move(x, y);// moving the current piece back to the source - invalid move 
 		}
 	}
-	if (res == CHECK_C)
-	{
-		this->game->getBoard()[i]->move(x, y);// moving the current piece back to the source - invalid move 
-	}
 
-	for (int x = 0; x < this->game->getBoard().size(); x++)
+	for (int a = 0; a < this->game->getBoard().size(); a++)
 	{
-		if (this->game->getBoard()[x]->valadateMove(this->game->getBoard()[k]->getX(), this->game->getBoard()[k]->getY()) == VALID && this->game->getBoard()[x]->getColor() != this->game->getBoard()[k]->getColor())//the move made a check on the opponent
+		if (this->game->getBoard()[a]->valadateMove(this->game->getBoard()[k]->getX(), this->game->getBoard()[k]->getY()) == VALID && this->game->getBoard()[a]->getColor() != this->game->getBoard()[k]->getColor())//the move made a check on the opponent
 		{
 			res = CHECK;
 		}
@@ -124,14 +121,14 @@ int Board::valadate(int x, int y, int newX, int newY)
 		res = CHECKMATE;
 	}
 
-	if (res == CHECK_C || res == CHECK || res == CHECKMATE || res == VALID)
+	if (res == CHECK || res == CHECKMATE || res == VALID)
 	{
-		if (this->game->getBoard()[j]->getColor() != this->game->getBoard()[i]->getColor())// there is a piece of the opponent in the destination
+		if (j != this->game->getBoard().size() && this->game->getBoard()[j]->getColor() != this->game->getBoard()[i]->getColor())// there is a piece of the opponent in the destination
 		{
-			delete this->game->getBoard()[j];
+			//delete this->game->getBoard()[j];
 			this->game->getBoard().erase(this->game->getBoard().begin() + j);
 		}
-		this->game->setIsWhiteTurn(!this->game->getIsWhiteTurn());// setting the turn to the other player
+		this->game->setIsWhiteTurn((!this->game->getIsWhiteTurn()));// setting the turn to the other player
 	}
 	
 	return res;

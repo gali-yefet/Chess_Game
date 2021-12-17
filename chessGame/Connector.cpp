@@ -21,13 +21,13 @@ bool Connector::turn()
 	values[2] = (int)msg[2] - 'a' + 1;
 	values[3] = (int)msg[3] - '0';
 
-	int replay = _game->valadate(values[0], values[1], values[2], values[3]);
-	cout << replay;
+	int reply = _game->valadate(values[0], values[1], values[2], values[3]);
+	cout << reply;
 	char c[2];
-	c[0] = replay + '0';
+	c[0] = reply + '0';
 	c[1] = NULL;
 	_p->sendMessageToGraphics(c);
-	return replay == 0 || replay == 1;
+	return (reply == 0 || reply == 1);
 }
 Connector::~Connector()
 {
