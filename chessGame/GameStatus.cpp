@@ -11,7 +11,7 @@
 //constructor
 GameStatus::GameStatus()
 {
-	this->isWhiteTurn = 0;
+	this->isWhiteTurn = false;
 	//0- white
 	//else- black
 	//add rook
@@ -55,7 +55,7 @@ GameStatus::~GameStatus()
 }
 string GameStatus::toString() const
 {
-	if (this->isWhiteTurn == 0)
+	if (this->isWhiteTurn == false)
 		return "RNBKQBNRPPPPPPPP################################pppppppprnbkqbnr1";
 	return "RNBKQBNRPPPPPPPP################################pppppppprnbkqbnr0";
 }

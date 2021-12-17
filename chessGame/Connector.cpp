@@ -15,9 +15,9 @@ bool Connector::turn()
 	//1a3d
 	int values[4];
 	values[0] = (int)msg[0]-'0';
-	values[1] = (int)msg[0] - 'a'+1;
-	values[2] = (int)msg[0] - '0';
-	values[3] = (int)msg[0] - 'a' + 1;
+	values[1] = (int)msg[1] - 'a' + 1;
+	values[2] = (int)msg[2] - '0';
+	values[3] = (int)msg[3] - 'a' + 1;
 	int replay = _game->valadate(values[0], values[1], values[2], values[3]);
 	cout << replay;
 	char c[2];
