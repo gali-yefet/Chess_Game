@@ -36,7 +36,7 @@ int Queen::valadateMove(const int newX, const int newY)
         return 0;
     }
     //diagonal
-    else if((getX() - newX == getY() - newY) || (newX - getX() == newY - getY()))
+    else if ((getX() - newX == getY() - newY) || (newX - getX() == newY - getY()) || (getX() - newX == -1 * (getY() - newY)) || (newX - getX() == -1 * (newY - getY())))
     {
         int offsetX = (getX() < newX) ? 1 : -1;
         int offsetY = (getY() < newY) ? 1 : -1;
@@ -51,8 +51,8 @@ int Queen::valadateMove(const int newX, const int newY)
                     return 6;
                 }
             }
-            return 0;
         }
+        return 0;
     }
     else
         return 6;
