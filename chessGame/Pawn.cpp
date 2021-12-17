@@ -8,7 +8,7 @@ Pawn::Pawn(const int x, const int y, const int color, const string type, GameSta
 
 int Pawn::valadateMove(const int newX, const int newY)
 {
-	if (((getColor()==0 && newY-getY()==-1) || (getColor() != 0 && newY - getY() == 1))&& getX()==newX)
+	if (((getColor() == 0 && newY - getY() == -1) || (getColor() != 0 && newY - getY() == 1)) && getX() == newX)
 	{
 		for (int i = 0; i < getGame()->getBoard().size(); i++)
 		{
@@ -30,7 +30,7 @@ int Pawn::valadateMove(const int newX, const int newY)
 		}
 		return 0;
 	}
-	if (((getColor() == 0 && newY - getY() == -1) || (getColor() != 0 && newY - getY() == 1)) && ((newX - getX() == -1)||(newX-getX()==1)))
+	if (((getColor() == 0 && newY - getY() == -1) || (getColor() != 0 && newY - getY() == 1)) && ((newX - getX() == -1) || (newX - getX() == 1)))
 	{
 		for (int i = 0; i < getGame()->getBoard().size(); i++)
 		{
