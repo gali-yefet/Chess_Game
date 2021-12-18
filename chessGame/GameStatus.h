@@ -1,6 +1,8 @@
 #pragma once
 #ifndef GAME_STATUS_H
 #define GAME_STATUS_H
+#define VALID_M 0
+#define INVALID_M 6
 #include "Piece.h"
 #include <stdio.h>
 #include <string>

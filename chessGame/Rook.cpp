@@ -35,5 +35,7 @@ int Rook::valadateMove(const int newX, const int newY)
         return VALID_M;
     }
     else//if path dosent create a line
+    {
         return INVALID_M;
+    } 
 }
