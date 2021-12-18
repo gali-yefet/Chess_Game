@@ -18,8 +18,8 @@ GameStatus::GameStatus()
 	this->_board.push_back(new Rook(1, 1, 1, "rook", this));
 	this->_board.push_back(new Knight(2, 1, 1, "knight", this));
 	this->_board.push_back(new Bioshop(3, 1, 1, "bioshop", this));
-	this->_board.push_back(new King(4, 1, 1, "king", this));
-	this->_board.push_back(new Queen(5, 1, 1, "queen", this));
+	this->_board.push_back(new King(5, 1, 1, "king", this));
+	this->_board.push_back(new Queen(4, 1, 1, "queen", this));
 	this->_board.push_back(new Bioshop(6, 1, 1, "bioshop", this));
 	this->_board.push_back(new Knight(7, 1, 1, "knight", this));
 	this->_board.push_back(new Rook(8, 1, 1, "rook", this));
@@ -37,8 +37,8 @@ GameStatus::GameStatus()
 	this->_board.push_back(new Rook(1, 8, 0, "rook", this));
 	this->_board.push_back(new Knight(2, 8, 0, "knight", this));
 	this->_board.push_back(new Bioshop(3, 8, 0, "bioshop", this));
-	this->_board.push_back(new King(4, 8, 0, "king", this));
-	this->_board.push_back(new Queen(5, 8, 0, "queen", this));
+	this->_board.push_back(new King(5, 8, 0, "king", this));
+	this->_board.push_back(new Queen(4, 8, 0, "queen", this));
 	this->_board.push_back(new Bioshop(6, 8, 0, "bioshop", this));
 	this->_board.push_back(new Knight(7, 8, 0, "knight", this));
 	this->_board.push_back(new Rook(8, 8, 0, "rook", this));
@@ -56,8 +56,8 @@ GameStatus::~GameStatus()
 string GameStatus::toString() const
 {
 	if (this->isWhiteTurn == false)
-		return "RNBKQBNRPPPPPPPP################################pppppppprnbkqbnr1";
-	return "RNBKQBNRPPPPPPPP################################pppppppprnbkqbnr0";
+		return "RNBQKBNRPPPPPPPP################################pppppppprnbqkbnr1";
+	return "RNBQKBNRPPPPPPPP################################pppppppprnbqkbnr0";
 }
 
 vector<Piece*> GameStatus::getBoard() const
